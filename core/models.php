@@ -12,7 +12,6 @@ function loginUser ($pdo, $username, $password) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        echo "No user found with that username.";
         return false; 
     }
 

@@ -16,7 +16,6 @@ if (isset($_POST['insertMemberBtn'])) {
     $favorite_game = $_POST['favorite_game']; 
     $game_type = $_POST['game_type'];
 
-    // Insert member with the user ID who added
     $query = insertMember($pdo, $member_name, $favorite_game, $game_type, $user_id);
 
     if ($query) {
@@ -32,7 +31,6 @@ if (isset($_POST['editMemberBtn'])) {
     $email = $_POST['email'];
     $phone_number = $_POST['phoneNumber']; 
 
-    // Update member with the user ID who is editing
     $query = updateMember($pdo, $member_name, $email, $phone_number, $member_id, $user_id);
 
     if ($query) {
@@ -57,7 +55,6 @@ if (isset($_POST['insertGameBtn'])) {
     $game_name = $_POST['game_name'];
     $member_id = $_GET['member_id'];
 
-    // Insert game with the user ID who added it
     $query = insertGame($pdo, $game_name, $member_id, $user_id);
 
     if ($query) {
@@ -71,7 +68,6 @@ if (isset($_POST['editGameBtn'])) {
     $game_id = $_GET['game_id'];
     $member_id = $_GET['member_id']; 
 
-    // Update game with the user ID who is editing
     $query = updateGame($pdo, $_POST['gameName'], $game_id, $user_id);
 
     if ($query) {
