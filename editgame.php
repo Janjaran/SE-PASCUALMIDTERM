@@ -18,9 +18,7 @@ $game = getGameByID($pdo, $game_id);
 <body>
     <a href="viewgames.php?member_id=<?php echo $game['member_id']; ?>">View The Games</a>
     <h1>Edit the Game!</h1>
-    
     <form action="core/handleForms.php?game_id=<?php echo $game_id; ?>&member_id=<?php echo $game['member_id']; ?>" method="POST">
-
         <p>
             <label for="gameName">Game Name:</label>
             <input type="text" name="gameName" value="<?php echo $game['game_name']; ?>">

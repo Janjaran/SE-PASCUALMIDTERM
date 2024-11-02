@@ -22,6 +22,7 @@ if (isset($_POST['loginBtn'])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
     <title>Login</title>
 </head>
 <body>
@@ -43,5 +44,4 @@ if (isset($_POST['loginBtn'])) {
     <p>Don't have an account? <a href="register.php">Register here</a></p>
 </body>
 </html>
-
 

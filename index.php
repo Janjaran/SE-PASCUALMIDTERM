@@ -42,16 +42,16 @@ $members = getAllMembers($pdo);
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to Gaming Esports Hub - Player Registration Form!</h1>
+    <h1 class="text-header">Welcome to Gaming Esports Hub - Player Registration Form!</h1>
+    <div class="user-info-container">
+        <h2 class="center-text">Current User Info:</h2>
+        <p class="user-info">Name: <?php echo $user['first_name'] . ' ' . $user['last_name']; ?></p>
+        <p class="user-info">Address: <?php echo $user['address']; ?></p>
+        <p class="user-info">Age: <?php echo $user['age']; ?></p>
+    </div>
 
-    <h2>Your Information</h2>
-    <p>Name: <?php echo htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?></p>
-    <p>Address: <?php echo htmlspecialchars($user['address']); ?></p>
-    <p>Age: <?php echo htmlspecialchars($user['age']); ?></p>
-
-    <br>
-    <h2>Register player here!</h2>
-    <form action="" method="POST">
+    <h2 class="center-text">Register player here!</h2>
+    <form action="" method="POST" class="center-text">
         <p>
             <label for="member_name">Player Name:</label>
             <input type="text" name="member_name" required>
@@ -64,10 +64,10 @@ $members = getAllMembers($pdo);
             <label for="phone_number">Phone Number:</label>
             <input type="text" name="phone_number" required>
         </p>
-        <input type="submit" name="insertMemberBtn" value="Add Member">
+        <input type="submit" name="insertMemberBtn" value="Add Player">
     </form>
 
-    <h2>All Members</h2>
+    <h2 class="center-text">Registered Members</h2>
     <table>
         <tr>
             <th>ID</th>
@@ -78,10 +78,11 @@ $members = getAllMembers($pdo);
         </tr>   
         <?php foreach ($members as $member) { ?>
             <tr>
-                <td><?php echo htmlspecialchars($member['member_id']); ?></td>
-                <td><?php echo htmlspecialchars($member['member_name']); ?></td>
-                <td><?php echo htmlspecialchars($member['email']); ?></td>
-                <td><?php echo htmlspecialchars($member['phone_number']); ?></td>
+            <td><?php echo $member['member_id']; ?></td>
+            <td><?php echo $member['member_name']; ?></td>
+            <td><?php echo $member['email']; ?></td>
+            <td><?php echo $member['phone_number']; ?></td>
+
                 <td>
                     <a href="viewgames.php?member_id=<?php echo $member['member_id']; ?>">View Games</a>
                     <a href="editmember.php?member_id=<?php echo $member['member_id']; ?>">Edit</a>
@@ -91,8 +92,11 @@ $members = getAllMembers($pdo);
         <?php } ?>
     </table>
 
+    <div class="logout-container">
     <form action="" method="POST" style="display:inline;">
         <input type="submit" name="logoutBtn" value="Logout">
     </form>
+</div>
+
 </body>
 </html>
