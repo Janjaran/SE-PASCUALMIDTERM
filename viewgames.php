@@ -34,10 +34,10 @@ $games = getGamesByMember($pdo, $member_id);
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Games for Member ID: <?php echo htmlspecialchars($member_id); ?></h1>
+    <h1>Games for Member ID: <?php echo $member_id; ?></h1>
 
     <form action="" method="POST">
-        <input type="hidden" name="member_id" value="<?php echo htmlspecialchars($member_id); ?>">
+        <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
         <p>
             <label for="game_name">Game Name:</label>
             <input type="text" name="game_name" required>
@@ -57,14 +57,14 @@ $games = getGamesByMember($pdo, $member_id);
     </tr>
     <?php foreach ($games as $game) { ?>
         <tr>
-            <td><?php echo htmlspecialchars($game['game_id']); ?></td>
-            <td><?php echo htmlspecialchars($game['game_name']); ?></td>
-            <td><?php echo htmlspecialchars($game['added_by_firstname'] . ' ' . $game['added_by_lastname']); ?></td>
-            <td><?php echo htmlspecialchars($game['updated_by_firstname'] . ' ' . $game['updated_by_lastname']); ?></td>
-            <td><?php echo htmlspecialchars($game['last_updated']); ?></td>
+            <td><?php echo $game['game_id']; ?></td>
+            <td><?php echo $game['game_name']; ?></td>
+            <td><?php echo $game['added_by_firstname'] . ' ' . $game['added_by_lastname']; ?></td>
+            <td><?php echo $game['updated_by_firstname'] . ' ' . $game['updated_by_lastname']; ?></td>
+            <td><?php echo $game['last_updated']; ?></td>
             <td>
-                <a href="editgame.php?game_id=<?php echo htmlspecialchars($game['game_id']); ?>&member_id=<?php echo htmlspecialchars($member_id); ?>">Edit</a>
-                <a href="deletegame.php?game_id=<?php echo htmlspecialchars($game['game_id']); ?>&member_id=<?php echo htmlspecialchars($member_id); ?>">Delete</a>
+                <a href="editgame.php?game_id=<?php echo $game['game_id']; ?>&member_id=<?php echo $member_id; ?>">Edit</a>
+                <a href="deletegame.php?game_id=<?php echo $game['game_id']; ?>&member_id=<?php echo $member_id; ?>">Delete</a>
             </td>
         </tr>
     <?php } ?>
